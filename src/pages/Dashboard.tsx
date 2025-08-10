@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import EventList from '@/components/EventList';
 import CommonButton from '@/components/common/CommonButton';
+import Filters from '@/components/Filters';
 import { Plus } from 'lucide-react';
 
 const Dashboard = () => {
@@ -15,6 +16,9 @@ const Dashboard = () => {
           >
             <Plus /> Create Event
           </CommonButton>
+      </div>
+      <div className='filters-container'>
+      <Filters />
       </div>
       <EventList />
     </div>

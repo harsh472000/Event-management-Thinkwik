@@ -5,13 +5,16 @@ import App from "./App";
 import "@/styles/index.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { EventProvider } from "@/contexts/EventContext";
+import { FilterProvider } from "./contexts/FilterContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <EventProvider>
-          <App />
+          <FilterProvider>
+            <App />
+          </FilterProvider>
         </EventProvider>
       </AuthProvider>
     </BrowserRouter>

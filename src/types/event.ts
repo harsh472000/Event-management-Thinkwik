@@ -15,3 +15,14 @@ export type EventItem = {
   createdAt: string;
   updatedAt: string;     
 };
+
+export type SortKey = 'start' | 'title';
+
+export type FilterState = {
+  q: string;
+  eventType: EventType | 'All';
+  category: string | 'All';
+  from?: string; // ISO date (yyyy-mm-dd)
+  to?: string;   // ISO date (yyyy-mm-dd)
+  sortBy: SortKey;
+};
