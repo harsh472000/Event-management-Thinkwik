@@ -19,6 +19,7 @@
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
+    --cancel-border: #000000;
 }
 
 * {
@@ -368,4 +369,9 @@ main {
   gap: 0.4rem;
   margin: 0;
   color: #333;
+}
+
+.event-card__actions{
+    display: flex;
+    gap: 0.5rem;
 }

@@ -5,7 +5,7 @@ import EventForm from "@/components/EventForm";
 const Event = () => {
   const { id } = useParams();
   const nav = useNavigate();
-  const { events, createEvent } = useEvents();
+  const { events, createEvent, updateEvent } = useEvents();
 
   const existing =
     id && id !== "new" ? events.find((e) => e.id === id) : undefined;
@@ -14,7 +14,7 @@ const Event = () => {
     console.log("Saving event:", values);
     try {
       if (existing) {
-        // update existing event
+        await updateEvent(existing.id, values);
       } else {
         await createEvent(values);
       }

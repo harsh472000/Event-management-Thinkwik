@@ -13,11 +13,11 @@ type EventCtx = {
       "id" | "createdAt" | "updatedAt" | "organizerId" | "organizerName"
     >
   ) => Promise<void>;
-
+  updateEvent: (id: string, updates: Partial<EventItem>) => Promise<void>;
+  deleteEvent: (id: string) => void;
 };
 
 const EventContext = createContext<EventCtx | undefined>(undefined);
-
 
 export function EventProvider({ children }: { children: React.ReactNode }) {
   const { user } = useAuthCtx();
@@ -68,9 +68,32 @@ export function EventProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
+  const updateEvent: EventCtx["updateEvent"] = async (id, updates) => {
+    setEvents((prev) => {
+      const idx = prev.findIndex((e) => e.id === id);
+      if (idx === -1) return prev;
+      const next = [...prev];
+      const merged = {
+        ...next[idx],
+        ...updates,
+        updatedAt: new Date().toISOString(),
+      } as EventItem;
+      if (isOverlapping(merged, prev))
+        throw new Error("Time conflict with another event");
+      next[idx] = merged;
+      return next.sort(
+        (a, b) =>
+          new Date(a.startDateTime).getTime() -
+          new Date(b.startDateTime).getTime()
+      );
+    });
+  };
+
+  const deleteEvent = (id: string) =>
+    setEvents((prev) => prev.filter((e) => e.id !== id));
 
   const value = useMemo(
-    () => ({ events, createEvent }),
+    () => ({ events, createEvent, updateEvent, deleteEvent }),
     [events]
   );
   return (
