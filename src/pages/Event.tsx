@@ -11,7 +11,6 @@ const Event = () => {
     id && id !== "new" ? events.find((e) => e.id === id) : undefined;
 
   const handleSave = async (values: any) => {
-    console.log("Saving event:", values);
     try {
       if (existing) {
         await updateEvent(existing.id, values);

@@ -14,7 +14,6 @@ export const load = <T>(key: string, fallback: T): T => {
 };
 
 export const save = (key: string, value: unknown) => {
-  console.log(`Saving to ${key}:`, value);
   localStorage.setItem(key, JSON.stringify(value));
 };
 
