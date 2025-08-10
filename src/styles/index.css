@@ -19,3 +19,86 @@ body {
     background: var(--bg);
     color: var(--text);
 }
+
+main {
+    padding: 1.5rem 0 3rem;
+}
+
+.h-screen {
+    min-height: 88vh;
+}
+
+.container {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+}
+
+.container.narrow {
+    width: min(720px, 92vw);
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.app-header {
+    position: sticky;
+    top: 0;
+    background: rgba(11, 12, 16, .6);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+
+.w-full{
+    width: 100%;
+}
+
+
+.form label {
+    display: grid;
+    gap: .35rem;
+}
+
+.form .err {
+    color: #ffb4b4;
+    font-style: normal;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.muted {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.muted a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.muted a:hover {
+    text-decoration: underline;
+}

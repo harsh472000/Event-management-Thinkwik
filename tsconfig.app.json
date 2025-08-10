@@ -25,7 +25,22 @@
       ],
       "@/styles/*": [
         "src/styles/*"
-      ]
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+      "@/contexts/*": [
+        "src/contexts/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],
+      "@/types/*": [
+        "src/types/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
     }
   },
   "include": [
