@@ -1,6 +1,7 @@
 const LS = {
   USERS: "evt.users",
   SESSION: "evt.session",
+  EVENTS: (userId: string) => `evt.events.${userId}`,
 };
 
 export const load = <T>(key: string, fallback: T): T => {
