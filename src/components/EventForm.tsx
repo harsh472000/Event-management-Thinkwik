@@ -194,7 +194,7 @@ export default function EventForm({
           </label>
         </div>
 
-        <div className="row end">
+        <div className="event-form-actions">
           <CommonButton type="submit" variant="primary">
             Save
           </CommonButton>

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import CommonButton from "@/components/common/CommonButton";
 import "@/styles/index.css";
 
 export default function Header() {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <header className="app-header">
@@ -31,7 +32,7 @@ export default function Header() {
               </Link>
               <CommonButton
                 variant="primary"
-                onClick={() => (window.location.href = "/signup")}
+                onClick={() => navigate("/signup")}
               >
                 Sign Up
               </CommonButton>

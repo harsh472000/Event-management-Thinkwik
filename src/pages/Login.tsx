@@ -48,7 +48,7 @@ const Login: React.FC = () => {
   return (
     <div className="flex justify-center items-center flex-col h-screen">
       <div className="container narrow">
-        <h2>Login</h2>
+        <h2 className="text-center">Login</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

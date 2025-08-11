@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEvents } from "@/hooks/useEvents";
 import EventForm from "@/components/EventForm";
+import { ArrowLeft } from "lucide-react";
 
 const Event = () => {
   const { id } = useParams();
@@ -23,8 +24,19 @@ const Event = () => {
     }
   };
   return (
-    <div className="container narrow">
-      <h2>{existing ? "Edit Event" : "New Event"}</h2>
+    <div className="container">
+      <div className="flex items-center gap-2 mb-4">
+        <span className="cursor-pointer">
+          <ArrowLeft
+            onClick={() => {
+              nav("/");
+            }}
+          />
+        </span>
+        <h2 className="event-heading">
+          {existing ? "Edit Event" : "New Event"}
+        </h2>
+      </div>
       <EventForm initial={existing} onSubmit={handleSave} />
     </div>
   );

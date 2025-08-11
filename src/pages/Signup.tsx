@@ -57,7 +57,7 @@ const Signup = () => {
   return (
     <div className="flex justify-center items-center flex-col h-screen">
       <div className="container narrow">
-        <h2>Sign Up</h2>
+        <h2 className="text-center">Sign Up</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
