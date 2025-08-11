@@ -69,25 +69,26 @@ export function EventProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateEvent: EventCtx["updateEvent"] = async (id, updates) => {
-    setEvents((prev) => {
-      const idx = prev.findIndex((e) => e.id === id);
-      if (idx === -1) return prev;
-      const next = [...prev];
-      const merged = {
-        ...next[idx],
-        ...updates,
-        updatedAt: new Date().toISOString(),
-      } as EventItem;
-      if (isOverlapping(merged, prev))
-        throw new Error("Time conflict with another event");
-      next[idx] = merged;
-      return next.sort(
-        (a, b) =>
-          new Date(a.startDateTime).getTime() -
-          new Date(b.startDateTime).getTime()
-      );
-    });
-  };
+  const current = events;
+  const target = current.find((e) => e.id === id);
+  if (!target) return;
+
+  const merged: EventItem = { ...target, ...updates, updatedAt: new Date().toISOString() };
+  const others = current.filter((e) => e.id !== id);
+
+  if (isOverlapping(merged, others)) {
+    throw new Error("Time conflict with another event");
+  }
+
+  setEvents(
+    [...others, merged].sort(
+      (a, b) =>
+        new Date(a.startDateTime).getTime() -
+        new Date(b.startDateTime).getTime()
+    )
+  );
+};
+
 
   const deleteEvent = (id: string) =>
     setEvents((prev) => prev.filter((e) => e.id !== id));
