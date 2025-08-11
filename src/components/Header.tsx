@@ -2,10 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import CommonButton from "@/components/common/CommonButton";
 import "@/styles/index.css";
+import { useFilters } from "@/hooks/useFilter";
 
 export default function Header() {
   const { user, logout } = useAuth();
+  const { resetFilters } = useFilters();
   const navigate = useNavigate();
+
+  const onLogout = () => {
+    logout();
+    resetFilters();
+  };
 
   return (
     <header className="app-header">
@@ -22,7 +29,7 @@ export default function Header() {
           )}
 
           {user ? (
-            <CommonButton variant="danger" onClick={logout} className="">
+            <CommonButton variant="danger" onClick={onLogout} className="">
               Logout
             </CommonButton>
           ) : (
