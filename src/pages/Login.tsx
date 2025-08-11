@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import CommonInput from "@/components/common/CommonInput";
 import CommonButton from "@/components/common/CommonButton";
+import toast from "react-hot-toast";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -35,9 +36,11 @@ const Login: React.FC = () => {
       try {
         setStatus(null);
         await login(values.email, values.password);
+        toast.success("User logged in successfully");
         navigate("/");
       } catch (error: any) {
         setStatus(error?.message || "Login failed");
+        toast.error(error?.message || "Login failed");
       } finally {
         setSubmitting(false);
       }

@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEvents } from "@/hooks/useEvents";
 import EventForm from "@/components/EventForm";
 import { ArrowLeft } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Event = () => {
   const { id } = useParams();
@@ -15,12 +16,14 @@ const Event = () => {
     try {
       if (existing) {
         await updateEvent(existing.id, values);
+        toast.success("Event updated successfully");
       } else {
         await createEvent(values);
+        toast.success("Event created successfully");
       }
       nav("/");
     } catch (e: any) {
-      alert(e.message || "Error saving event");
+      toast.error(e.message || "Error saving event");
     }
   };
   return (

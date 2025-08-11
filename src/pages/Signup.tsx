@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import CommonInput from "@/components/common/CommonInput";
 import CommonButton from "@/components/common/CommonButton";
+import toast from "react-hot-toast";
 
 const validationSchema = Yup.object({
   name: Yup.string().min(2).max(50).required(),
@@ -44,9 +45,11 @@ const Signup = () => {
       try {
         setStatus(null);
         await signup(values.name, values.email, values.password);
+        toast.success("User Registred successfully");
         navigate("/");
       } catch (error: any) {
         setStatus(error.message || "Signup failed");
+        toast.error(error.message || "Signup failed");
       } finally {
         setSubmitting(false);
       }
