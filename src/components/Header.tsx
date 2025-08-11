@@ -13,6 +13,7 @@ export default function Header() {
   const onLogout = () => {
     logout();
     resetFilters();
+    navigate("/login");
   };
 
   return (
