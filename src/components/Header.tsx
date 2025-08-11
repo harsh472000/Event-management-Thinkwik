@@ -3,6 +3,7 @@ import { useAuth } from "@/hooks/useAuth";
 import CommonButton from "@/components/common/CommonButton";
 import "@/styles/index.css";
 import { useFilters } from "@/hooks/useFilter";
+import "@/styles/header.css";
 
 export default function Header() {
   const { user, logout } = useAuth();

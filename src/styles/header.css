@@ -1,0 +1,174 @@
+/* Enhanced Header Styles */
+.app-header {
+    position: sticky;
+    top: 0;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    z-index: 50;
+    transition: all 0.2s ease-in-out;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 var(--spacing-lg);
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: -0.025em;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.brand:hover {
+    color: var(--primary-600);
+}
+
+.brand::before {
+    content: "🎉";
+    font-size: 1.25rem;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-greeting {
+    color: var(--muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    border: 1px solid #e2e8f0;
+}
+
+.user-greeting::before {
+    content: "👋";
+    margin-right: var(--spacing-xs);
+}
+
+
+.header-nav .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    height: 2.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    margin: 0;
+}
+
+.header-nav .btn:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.header-nav .btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.header-nav .btn:active {
+    transform: translateY(1px);
+}
+
+.header-nav .btn.ghost {
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--border);
+}
+
+.header-nav .btn.ghost:hover:not(:disabled) {
+    background: #f8fafc;
+    color: var(--text);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.header-nav .btn.danger {
+    background: var(--danger);
+    color: white;
+}
+
+.header-nav .btn.danger:hover:not(:disabled) {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.header-nav .btn.sm {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    min-width: 70px;
+    height: 2rem;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .header-nav {
+        padding: 0 var(--spacing-md);
+    }
+
+    .brand {
+        font-size: 1.25rem;
+    }
+
+    .user-greeting {
+        display: none;
+    }
+
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        min-width: 70px;
+        font-size: var(--text-xs);
+    }
+
+    .nav-actions {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .brand::before {
+        display: none;
+    }
+
+    .auth-buttons {
+        /* flex-direction: column; */
+        gap: var(--spacing-xs);
+    }
+
+    .btn {
+        height: 2rem;
+        min-width: 60px;
+    }
+}
