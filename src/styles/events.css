@@ -122,3 +122,11 @@
     gap: 0.5rem;
     margin-top: 1rem;
 }
+
+.event-notfound{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}

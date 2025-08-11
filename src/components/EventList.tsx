@@ -37,7 +37,7 @@ const EventList = () => {
   }, [events, filters]);
 
   if (!filtered.length)
-    return <p className="muted">No events match your filters.</p>;
+    return <p className="muted event-notfound">No events Found.</p>;
 
   return (
     <div className="grid cards">
