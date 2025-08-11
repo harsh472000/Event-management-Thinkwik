@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { EventItem, EventType } from "@/types/event";
 import CommonInput from "@/components/common/CommonInput";
 import CommonButton from "@/components/common/CommonButton";
+import "@/styles/events.css";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required("Title is required"),

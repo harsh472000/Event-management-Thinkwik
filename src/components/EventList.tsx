@@ -2,6 +2,7 @@ import { useEvents } from "@/hooks/useEvents";
 import React, { useMemo } from "react";
 import EventCard from "./EventCard";
 import { useFilters } from "@/hooks/useFilter";
+import "@/styles/events.css";
 
 const EventList = () => {
   const { events, deleteEvent } = useEvents();

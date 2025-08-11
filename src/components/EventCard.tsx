@@ -4,6 +4,7 @@ import { Calendar, Link2, MapPin } from "lucide-react";
 import { EventItem } from "@/types/event";
 import CommonButton from "@/components/common/CommonButton";
 import Dialog from "@/components/common/Dialog";
+import "@/styles/events.css";
 
 
 const EventCard = ({
