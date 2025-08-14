@@ -36,6 +36,12 @@ const EventCard = ({
             Edit
           </Link> */}
           <CommonButton
+            size="sm"
+            onClick={()=> navigate(`/events/view/${e.id}`)}
+          >
+            View
+          </CommonButton>
+          <CommonButton
             size="sm" 
             onClick={() => navigate(`/events/${e.id}`)}
           >

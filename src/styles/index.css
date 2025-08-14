@@ -160,3 +160,12 @@ textarea.input {
 textarea.input {
     resize: vertical;
 }
+
+
+.text-center {
+    text-align: center;
+}
+
+.details {
+    font-weight: bold;
+}

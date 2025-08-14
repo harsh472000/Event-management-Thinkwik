@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import EventDetails from "@/pages/EventDetails";
 
 const Login = lazy(() => import("@/pages/Login"));
 const Signup = lazy(() => import("@/pages/Signup"));
@@ -35,6 +36,14 @@ export default function AppRoutes() {
           element={
             <ProtectedRoute>
               <Event />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/events/view/:id"
+          element={
+            <ProtectedRoute>
+              <EventDetails />
             </ProtectedRoute>
           }
         />
